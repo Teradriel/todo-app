@@ -1,0 +1,13 @@
+<nav ngbNav #nav="ngbNav" class="nav-tabs justify-content-center">
+  <ng-container ngbNavItem>
+    <a routerLink="home" ngbNavLink>Lista de tareas</a>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a routerLink="about" ngbNavLink>Sobre este proyecto</a>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a routerLink="login" ngbNavLink>Iniciar sesión</a>
+  </ng-container>
+</nav>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

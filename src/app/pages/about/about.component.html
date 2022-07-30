@@ -1,0 +1,31 @@
+<div>
+  <h2>Organizador de tareas</h2>
+  <h4>v. 1.0.0</h4>
+</div>
+<div>
+  <h3>Contactese con el desarrollador</h3>
+  <form (ngSubmit)="onMensaje()" [formGroup]="login">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Ingrese su email"
+        formControlName="email"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="mensaje" class="form-label">Mensaje</label>
+      <textarea
+        class="form-control"
+        id="mensaje"
+        formControlName="mensaje"
+        rows="3"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar comentarios</button>
+  </form>
+</div>
