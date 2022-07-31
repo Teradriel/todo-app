@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { MessageService } from '../../services/message.service';
 import { Task } from 'src/app/interfaces/task';
 
 @Component({
@@ -10,9 +11,13 @@ import { Task } from 'src/app/interfaces/task';
 })
 export class AboutComponent implements OnInit {
   task: Task[] = [];
-  login: FormGroup;
-  constructor(private formbuilder: FormBuilder) {
-    this.login = this.formbuilder.group({
+  mensaje: FormGroup;
+  admin: boolean = false;
+  constructor(
+    private formbuilder: FormBuilder,
+    private message: MessageService
+  ) {
+    this.mensaje = this.formbuilder.group({
       email: [''],
       mensaje: [''],
     });
@@ -21,7 +26,8 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {}
 
   onMensaje() {
-    alert('Hola');
-    this.login.reset();
+    this.message.sendMensaje(this.mensaje.value).subscribe(() => {
+      this.mensaje.reset();
+    });
   }
 }

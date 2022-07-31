@@ -10,6 +10,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
+import { TaskItemComponent } from './pages/home/task-item/task-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { LoginComponent } from './pages/login/login.component';
     FooterComponent,
     AboutComponent,
     LoginComponent,
+    TaskItemComponent,
   ],
   imports: [
     BrowserModule,

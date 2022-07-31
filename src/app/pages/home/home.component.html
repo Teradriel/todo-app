@@ -1,1 +1,4 @@
-<p>home works!</p>
+<div class="home">
+  <button class="btn btn-success" (click)="addTask()">Agregar tarea</button>
+  <app-task-item *ngFor="let task of tasks" [task]="task"></app-task-item>
+</div>

@@ -1,3 +1,16 @@
 h3 {
   margin-top: 40px;
 }
+
+#version {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#contact {
+  padding: 15px 150px;
+}
+
+button {
+  width: 100%;
+}

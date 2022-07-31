@@ -1,10 +1,10 @@
-<div>
+<div id="version">
   <h2>Organizador de tareas</h2>
   <h4>v. 1.0.0</h4>
 </div>
-<div>
+<div id="contact">
   <h3>Contactese con el desarrollador</h3>
-  <form (ngSubmit)="onMensaje()" [formGroup]="login">
+  <form (ngSubmit)="onMensaje()" [formGroup]="mensaje">
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
       <input
@@ -26,6 +26,6 @@
         required
       ></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar comentarios</button>
+    <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
 </div>

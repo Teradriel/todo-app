@@ -1,9 +1,38 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  logged: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  constructor() { }
+  constructor(private ruta: Router) {}
+
+  login(credentials: {
+    usuario: string;
+    password: string;
+  }): Observable<boolean> {
+    if (credentials.usuario === 'Alexis' && credentials.password === 'Admin') {
+      alert('Bienvenido');
+      this.logged.next(true);
+      sessionStorage.setItem(
+        'currentUser',
+        JSON.stringify(credentials.usuario)
+      );
+      this.ruta.navigate(['/home']);
+      return this.logged;
+    } else {
+      alert('Usuario o contraseña incorrectos');
+      this.logged.next(false);
+      return this.logged;
+    }
+  }
+
+  logout(): Observable<boolean> {
+    this.logged.next(false);
+    this.ruta.navigate(['/home']);
+    return this.logged;
+  }
 }
