@@ -12,7 +12,6 @@ import { Task } from 'src/app/interfaces/task';
 export class AboutComponent implements OnInit {
   task: Task[] = [];
   mensaje: FormGroup;
-  admin: boolean = false;
   constructor(
     private formbuilder: FormBuilder,
     private message: MessageService

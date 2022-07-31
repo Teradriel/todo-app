@@ -11,6 +11,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TaskItemComponent } from './pages/home/task-item/task-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TaskItemComponent } from './pages/home/task-item/task-item.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
