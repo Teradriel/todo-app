@@ -3,7 +3,8 @@
 }
 
 .card.completed {
-  background-color: green;
+  border-color: green;
+  border-left-width: 5px;
 }
 
 .card-header {

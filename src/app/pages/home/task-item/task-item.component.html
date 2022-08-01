@@ -1,4 +1,8 @@
-<div class="card text-bg-light mb-3">
+<div
+  class="card text-bg-light mb-3"
+  [ngClass]="{ completed: task.completed }"
+  (click)="onToggle(task)"
+>
   <div class="card-header">
     <h1>{{ task.title }}</h1>
     <h1>

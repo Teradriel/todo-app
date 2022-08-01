@@ -47,4 +47,10 @@ export class HomeComponent implements OnInit {
       this.tasks = this.tasks.filter((t) => t.id !== task.id);
     });
   }
+
+  toggleCompleted(task: Task) {
+    this.taskService.toggleCompleted(task).subscribe(() => {
+      task.completed = !task.completed;
+    });
+  }
 }

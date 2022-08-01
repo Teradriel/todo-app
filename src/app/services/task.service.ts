@@ -24,4 +24,9 @@ export class TaskService {
     const url = `${this.url}/${task.id}`;
     return this.http.delete<Task>(url);
   }
+
+  toggleCompleted(task: Task): Observable<Task> {
+    const url = `${this.url}/${task.id}`;
+    return this.http.patch<Task>(url, { completed: !task.completed });
+  }
 }
