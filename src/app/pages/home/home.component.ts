@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../interfaces/task';
-import { TASKS } from 'src/app/interfaces/mock-tasks';
+import { TaskService } from 'src/app/services/task.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +11,40 @@ import { TASKS } from 'src/app/interfaces/mock-tasks';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  tasks: Task[] = TASKS;
-  constructor() {}
+  tasks: Task[] = [];
+  addForm: FormGroup;
 
-  ngOnInit(): void {}
+  faCalendar = faCalendar;
+  constructor(
+    private taskService: TaskService,
+    private modalService: NgbModal,
+    private fb: FormBuilder
+  ) {
+    this.addForm = this.fb.group({
+      task: '',
+      date: new Date(),
+    });
+  }
+
+  ngOnInit(): void {
+    this.taskService.getTasks().subscribe((tasks) => {
+      this.tasks = tasks;
+    });
+  }
+
+  open(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
 
   addTask() {
-    console.log('add task');
+    this.taskService.addTask(this.addForm.value);
+    this.addForm.reset();
+    this.modalService.dismissAll();
+  }
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task).subscribe(() => {
+      this.tasks = this.tasks.filter((t) => t.id !== task.id);
+    });
   }
 }

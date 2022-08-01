@@ -32,8 +32,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  /* TODO: Implementar amdin en header!!!! */
-
   Logout() {
     this.auth.logout().subscribe((res) => {
       sessionStorage.setItem('islogged', JSON.stringify(res));

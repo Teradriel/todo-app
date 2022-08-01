@@ -2,7 +2,11 @@
   <div class="card-header">
     <h1>{{ task.title }}</h1>
     <h1>
-      <fa-icon [icon]="faTimes" *ngIf="admin"></fa-icon>
+      <fa-icon
+        [icon]="faTimes"
+        *ngIf="admin"
+        (click)="onDelete(task)"
+      ></fa-icon>
     </h1>
   </div>
 

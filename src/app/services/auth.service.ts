@@ -14,7 +14,7 @@ export class AuthService {
     usuario: string;
     password: string;
   }): Observable<boolean> {
-    if (credentials.usuario === 'Alexis' && credentials.password === 'Admin') {
+    if (credentials.usuario === 'Admin' && credentials.password === 'root') {
       alert('Bienvenido');
       this.logged.next(true);
       sessionStorage.setItem(
