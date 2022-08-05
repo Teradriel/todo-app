@@ -35,7 +35,7 @@ const dbConfig: DBConfig = {
       storeConfig: { keyPath: 'id', autoIncrement: true },
       storeSchema: [
         { name: 'email', keypath: 'email', options: { unique: false } },
-        { name: 'mensaje', keypath: 'mensaje', options: { unique: false } },
+        { name: 'message', keypath: 'message', options: { unique: false } },
       ],
     },
   ],

@@ -15,7 +15,7 @@ export class AuthService {
     password: string;
   }): Observable<boolean> {
     if (credentials.usuario === 'Admin' && credentials.password === 'root') {
-      alert('Bienvenido');
+      alert('Welcome');
       this.logged.next(true);
       sessionStorage.setItem(
         'currentUser',
@@ -24,7 +24,7 @@ export class AuthService {
       this.ruta.navigate(['/home']);
       return this.logged;
     } else {
-      alert('Usuario o contraseña incorrectos');
+      alert('Invalid credentials');
       this.logged.next(false);
       return this.logged;
     }

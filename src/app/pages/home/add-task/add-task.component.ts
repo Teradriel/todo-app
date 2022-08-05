@@ -36,7 +36,7 @@ export class AddTaskComponent implements OnInit {
       this.addForm.value.task === null ||
       this.addForm.value.date === null
     ) {
-      alert('Por favor ingrese todos los datos');
+      alert('Please fill all the fields');
       this.addForm.reset();
     } else {
       this.idbService.add('tasks', this.addForm.value).subscribe();

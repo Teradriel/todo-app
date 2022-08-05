@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private auth: AuthService) {
     this.login = this.fb.group({
-      usuario: '',
+      username: '',
       password: '',
     });
   }

@@ -1,13 +1,13 @@
 <div *ngIf="!admin" class="login">
   <form [formGroup]="login" (ngSubmit)="onLogin()">
     <div class="mb-3">
-      <label for="usuario" class="form-label">Usuario</label>
+      <label for="username" class="form-label">Usuario</label>
       <input
         type="text"
         class="form-control"
-        id="usuairo"
-        formControlName="usuario"
-        placeholder="Usuario"
+        id="username"
+        formControlName="username"
+        placeholder="Username"
         required
       />
     </div>
@@ -22,12 +22,10 @@
         required
       />
     </div>
-    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
 </div>
 <div *ngIf="admin" class="login">
-  <h1>¡¡¡Bienvenido!!!</h1>
-  <button (click)="Logout()" class="btn btn-primary btn-block">
-    Desconectarse
-  </button>
+  <h1>Welcome!!!</h1>
+  <button (click)="Logout()" class="btn btn-primary btn-block">Log out</button>
 </div>

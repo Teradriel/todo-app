@@ -8,22 +8,21 @@ import { NgxIndexedDBService } from 'ngx-indexed-db';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  mensaje: FormGroup;
+  message: FormGroup;
   constructor(
     private formbuilder: FormBuilder,
     private idbService: NgxIndexedDBService
   ) {
-    this.mensaje = this.formbuilder.group({
+    this.message = this.formbuilder.group({
       email: [''],
-      mensaje: [''],
+      message: [''],
     });
   }
 
   ngOnInit(): void {}
 
-  onMensaje() {
-    this.idbService.add('messages', this.mensaje).subscribe(() => {
-      console.log('mensaje guardado');
-    });
+  onMessage() {
+    this.idbService.add('messages', this.message.value).subscribe();
+    this.message.reset();
   }
 }

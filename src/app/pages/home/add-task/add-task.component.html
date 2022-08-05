@@ -1,8 +1,8 @@
 <div class="add-task">
-  <button class="btn btn-success" (click)="open(content)">Agregar tarea</button>
+  <button class="btn btn-success" (click)="open(content)">Add Task</button>
   <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Agregar tarea</h4>
+      <h4 class="modal-title" id="modal-basic-title">Add Task</h4>
       <button
         type="button"
         class="btn-close"
@@ -13,21 +13,21 @@
     <div class="modal-body">
       <form [formGroup]="addForm" (ngSubmit)="addTask()">
         <div class="mb-3">
-          <label for="title">Tarea</label>
+          <label for="title">Task</label>
           <input
             type="text"
             class="form-control"
             id="title"
             formControlName="title"
-            placeholder="Ingrese la tarea"
+            placeholder="Input task"
             required
           />
-          <label for="date">Fecha de vencimiento</label>
+          <label for="date">Deadline</label>
           <div class="input-group">
             <input
               id="date"
               class="form-control"
-              placeholder="dd/mm/aaaa"
+              placeholder="dd/mm/yyyy"
               name="date"
               type="text"
               formControlName="date"
@@ -41,7 +41,7 @@
             class="btn btn-outline-dark"
             (click)="modal.close('Save click')"
           >
-            Agregar tarea
+            Add task
           </button>
         </div>
       </form>

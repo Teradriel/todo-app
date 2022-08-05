@@ -1,31 +1,31 @@
 <div id="version">
-  <h2>Organizador de tareas</h2>
+  <h2>To Do List</h2>
   <h4>v. 1.0.0</h4>
 </div>
 <div id="contact">
-  <h3>Contactese con el desarrollador</h3>
-  <form (ngSubmit)="onMensaje()" [formGroup]="mensaje">
+  <h3>Contact with the developer</h3>
+  <form method="POST" (ngSubmit)="onMessage()" [formGroup]="message">
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
       <input
         type="email"
         class="form-control"
         id="email"
-        placeholder="Ingrese su email"
+        placeholder="Email"
         formControlName="email"
         required
       />
     </div>
     <div class="mb-3">
-      <label for="mensaje" class="form-label">Mensaje</label>
+      <label for="message" class="form-label">Message</label>
       <textarea
         class="form-control"
-        id="mensaje"
-        formControlName="mensaje"
+        id="message"
+        formControlName="message"
         rows="3"
         required
       ></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary">Send</button>
   </form>
 </div>
