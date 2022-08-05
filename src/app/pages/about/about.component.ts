@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-
-import { MessageService } from '../../services/message.service';
-import { Task } from 'src/app/interfaces/task';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-about',
@@ -10,11 +8,10 @@ import { Task } from 'src/app/interfaces/task';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  task: Task[] = [];
   mensaje: FormGroup;
   constructor(
     private formbuilder: FormBuilder,
-    private message: MessageService
+    private idbService: NgxIndexedDBService
   ) {
     this.mensaje = this.formbuilder.group({
       email: [''],
@@ -25,8 +22,8 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {}
 
   onMensaje() {
-    this.message.sendMensaje(this.mensaje.value).subscribe(() => {
-      this.mensaje.reset();
+    this.idbService.add('messages', this.mensaje).subscribe(() => {
+      console.log('mensaje guardado');
     });
   }
 }

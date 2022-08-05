@@ -1,8 +1,15 @@
 .login {
   padding: 20px 100px;
   margin-top: 20px;
+  text-align: center;
 }
 
 button {
   width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .login {
+    padding: 20px;
+  }
 }

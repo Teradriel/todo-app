@@ -1,50 +1,5 @@
 <div class="home">
-  <button class="btn btn-success" (click)="open(content)">Agregar tarea</button>
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Agregar tarea</h4>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="addForm" (ngSubmit)="addTask()">
-        <div class="mb-3">
-          <label for="task">Tarea</label>
-          <input
-            type="text"
-            class="form-control"
-            id="task"
-            formControlName="task"
-            placeholder="Ingrese la tarea"
-          />
-          <label for="date">Fecha de vencimiento</label>
-          <div class="input-group">
-            <input
-              id="date"
-              class="form-control"
-              placeholder="dd/mm/aaaa"
-              name="date"
-              type="text"
-              formControlName="date"
-            />
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        (click)="modal.close('Save click')"
-      >
-        Agregar tarea
-      </button>
-    </div>
-  </ng-template>
+  <app-add-task></app-add-task>
   <app-task-item
     *ngFor="let task of tasks"
     [task]="task"

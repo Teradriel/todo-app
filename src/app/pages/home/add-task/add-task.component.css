@@ -1,0 +1,9 @@
+.add-task {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-bottom: 20px;
+}

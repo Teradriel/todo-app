@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../interfaces/task';
-import { TaskService } from 'src/app/services/task.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-home',
@@ -12,45 +9,21 @@ import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent implements OnInit {
   tasks: Task[] = [];
-  addForm: FormGroup;
 
-  faCalendar = faCalendar;
-  constructor(
-    private taskService: TaskService,
-    private modalService: NgbModal,
-    private fb: FormBuilder
-  ) {
-    this.addForm = this.fb.group({
-      task: '',
-      date: new Date(),
-    });
-  }
+  constructor(private idbService: NgxIndexedDBService) {}
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks) => {
-      this.tasks = tasks;
+    this.idbService.getAll('tasks').subscribe((tasks) => {
+      this.tasks = tasks as Task[];
     });
-  }
-
-  open(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
-  }
-
-  addTask() {
-    this.taskService.addTask(this.addForm.value);
-    this.addForm.reset();
-    this.modalService.dismissAll();
   }
 
   deleteTask(task: Task) {
-    this.taskService.deleteTask(task).subscribe(() => {
-      this.tasks = this.tasks.filter((t) => t.id !== task.id);
-    });
+    this.idbService.delete('tasks', task.id!).subscribe();
   }
 
   toggleCompleted(task: Task) {
-    this.taskService.toggleCompleted(task).subscribe(() => {
-      task.completed = !task.completed;
-    });
+    task.completed = !task.completed;
+    this.idbService.update('tasks', task).subscribe();
   }
 }
