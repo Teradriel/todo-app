@@ -11,15 +11,15 @@ export class AuthService {
   constructor(private ruta: Router) {}
 
   login(credentials: {
-    usuario: string;
+    username: string;
     password: string;
   }): Observable<boolean> {
-    if (credentials.usuario === 'Admin' && credentials.password === 'root') {
+    if (credentials.username === 'Admin' && credentials.password === 'root') {
       alert('Welcome');
       this.logged.next(true);
       sessionStorage.setItem(
         'currentUser',
-        JSON.stringify(credentials.usuario)
+        JSON.stringify(credentials.username)
       );
       this.ruta.navigate(['/home']);
       return this.logged;

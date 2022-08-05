@@ -1,21 +1,18 @@
-<div
-  class="card text-bg-light mb-3"
-  [ngClass]="{ completed: task.completed }"
-  (click)="onToggle(task)"
->
-  <div class="card-header">
+<div class="card text-bg-light mb-3" [ngClass]="{ completed: task.completed }">
+  <div class="card-header" (click)="onToggle(task)">
     <h1>
       {{ task.title }}
     </h1>
-    <h1 (click)="onDelete(task)" *ngIf="admin">
-      <fa-icon [icon]="faTimes"></fa-icon>
-    </h1>
   </div>
-
-  <div class="card-body">
+  <div class="card-body" (click)="onToggle(task)">
     <h5 class="card-title">
       You have time until {{ task.date }} to complete the task, or you'll be
       destroyed.
     </h5>
+  </div>
+  <div class="card-text">
+    <button type="button" class="btn" (click)="onDelete(task)" *ngIf="admin">
+      Delete Task
+    </button>
   </div>
 </div>

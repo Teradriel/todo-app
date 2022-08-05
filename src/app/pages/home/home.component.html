@@ -3,7 +3,6 @@
   <app-task-item
     *ngFor="let task of tasks"
     [task]="task"
-    (onDeleteTask)="deleteTask(task)"
     (onToggleCompleted)="toggleCompleted(task)"
   ></app-task-item>
 </div>

@@ -18,10 +18,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  deleteTask(task: Task) {
-    this.idbService.delete('tasks', task.id!).subscribe();
-  }
-
   toggleCompleted(task: Task) {
     task.completed = !task.completed;
     this.idbService.update('tasks', task).subscribe();
